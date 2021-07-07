@@ -7,19 +7,19 @@ export class Main extends Component {
         super(props)
         
         this.state = {
-                val: ''
-            
+                val: '',
+                data: []
+
         }
     }
-    data = []
 
 // Catando as info na API
     fetchData = () => {
     return fetch("https://digimon-api.vercel.app/api/digimon/name/" + this.state.val)
         .then((response) => response.json())
         .then((data) => {
-            this.data = data[0]
-            console.warn(this.data)
+            this.setState ({data: data[0]})
+
         });
         
     }
@@ -32,7 +32,6 @@ export class Main extends Component {
     }
 // executa algo quando o submit for clicado
     submitHandle = ( a ) =>{
-        alert(`${this.state.val}`);
         // Impede que a pagina dê reload 
         a.preventDefault();
     }
@@ -50,9 +49,9 @@ export class Main extends Component {
           <input onClick={this.fetchData} type="submit" className="mx-5 px-8 h-14 my-1 rounded bg-gray-100 hover:bg-gray-500 hover:text-white" placeholder="pesquisar"/>           
         </form>
         <section> 
-            {this.data.name}
-            {this.data.img}
-            {this.data.level}
+            <p>Name: {this.state.data.name}</p>
+            <p>level: {this.state.data.level}</p>
+            <img src={this.state.data.img}/>            
         </section>
       </section>
 
