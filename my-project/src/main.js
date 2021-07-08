@@ -24,7 +24,7 @@ export class Main extends Component {
         
     }
 
-// Armazena o valor na variavel
+// Armazena o valor de busca na variavel
     valHandle = ( a ) =>{
         this.setState({
             val : a.target.value
@@ -49,8 +49,8 @@ export class Main extends Component {
           <input onClick={this.fetchData} type="submit" className="mx-5 px-8 h-14 my-1 rounded bg-gray-100 hover:bg-gray-500 hover:text-white" placeholder="pesquisar"/>           
         </form>
         <section> 
-            <p>Name: {this.state.data.name}</p>
-            <p>level: {this.state.data.level}</p>
+            <p className="text-white">Name: {this.state.data.name}</p>
+            <p className="text-white">level: {this.state.data.level}</p>
             <img src={this.state.data.img}/>            
         </section>
       </section>
