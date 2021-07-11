@@ -1,2 +1,2 @@
-# react film api
- Small project with react and api call
+# react Digimon API call
+ Type correctly a digimon name.
